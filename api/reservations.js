@@ -36,6 +36,7 @@ router
         const {startDate, endDate, guests} = req.body;
 
         // TODO: use some 3r party lib for validation or move to helpers
+        // TODO: use MomentJS for startDate/endDate
         if (!startDate || typeof startDate !== 'string'
             || !endDate || typeof endDate !== 'string'
             || !guests || typeof guests !== 'number'
