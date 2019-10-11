@@ -35,6 +35,7 @@ router
     .post('/', (req, res, next) => {
         const {startDate, endDate, guests} = req.body;
 
+        // TODO: use some 3r party lib for validation or move to helpers
         if (!startDate || typeof startDate !== 'string'
             || !endDate || typeof endDate !== 'string'
             || !guests || typeof guests !== 'number'
@@ -45,6 +46,7 @@ router
             return;
         }
 
+        // TODO: move 16 to config file
         if (guests > 16) {
             res.status(500).json({error: `Oops, we can't serve ${guests} guests!`});
             return;
@@ -77,6 +79,7 @@ router
         });
     })
 
+    // TODO: DRY - partially repeats POST method
     .put('/:reservationId', (req, res, next) => {
         const {reservationId} = req.params;
         const {startDate, endDate, guests} = req.body;
